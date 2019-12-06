@@ -14,8 +14,8 @@ class challenge2(unittest.TestCase):
 
     def test_challenge2(self):
         self.driver.get("https://www.copart.com")
-        searchButton = self.driver.find_element_by_xpath("//*[@id='search-form']/div/div[2]/button")
-        searchField = self.driver.find_element_by_id("input-search")
+        searchButton = self.driver.find_element(By.XPATH, "//*[@id='search-form']/div/div[2]/button")
+        searchField = self.driver.find_element(By.ID, "input-search")
 
         self.assertIn("Copart", self.driver.title)
         searchField.send_keys("exotic")
