@@ -12,14 +12,22 @@ class challenge2(unittest.TestCase):
     def tearDown(self):
         self.driver.close()
 
-    def test_challenge2(self):
+    def test_challenge3forLoop(self):
         self.driver.get("https://www.copart.com")
-        popularMakes = self.driver.find_elements(By.XPATH, '//*[@id="tabTrending"]/div[1]/div[2]/*')
+        popularList = self.driver.find_elements(By.XPATH, '//*[@ng-if="popularSearches"]//a')
+        for make in popularList:
+            print(make.text + " - " + make.get_attribute("href"))
+
+
+    def test_challenge3whileLoop(self):
+        self.driver.get("https://www.copart.com")
+        categoryList = self.driver.find_elements(By.XPATH, '//*[@id="tabTrending"]/div[3]//a')
         self.assertIn("Copart", self.driver.title)
-        print(popularMakes)
-        for make in popularMakes:
-            print(make.text)
-        print("This totally works")
+        loopIndex=0
+        while(loopIndex < len(categoryList)):
+            print(categoryList[loopIndex].text + " - " + categoryList[loopIndex].get_attribute("href"))
+            loopIndex=loopIndex+1
+
         
 
 if __name__ == '__main__':
