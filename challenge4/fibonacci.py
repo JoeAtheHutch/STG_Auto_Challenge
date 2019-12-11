@@ -1,6 +1,6 @@
 class Fibonacci:
     
-    #I don't think there is any value to this method, but I feel better having a constructor
+    #I don't think there is any value to this method, but I feel better having a constructor. Old Java habits
     def fibonacci(self):
         n1=0
         n2=1
