@@ -13,11 +13,21 @@ class challenge2(unittest.TestCase):
         self.numToString = ConvertNumberToString()
 
     def test_challenge4(self):
-         print(self.fib.getFibOrder(1))
+        self.fib.getFibOrder(1)
+        self.fib.getFibOrder(10)
 
     def test_numToString(self):
-        print(self.numToString.getNumberString(12034200))
-        print(self.numToString.getNumberString(0))
+        self.numToString.getNumberString(12034200)
+        self.numToString.getNumberString(0)
+
+    def test_fibString(self):
+        fibValues = [0, 1, 10, 12, 30]
+        for value in fibValues:
+            print(self.get_fibString(value))
+
+    def get_fibString(self, fibValue):
+        theNum = self.fib.getFibOrder(fibValue)  
+        return str(theNum) + ' - ' + self.numToString.getNumberString(theNum)
 
         
 
