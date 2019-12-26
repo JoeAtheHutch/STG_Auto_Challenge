@@ -17,14 +17,12 @@ class bonusSlingImage(unittest.TestCase):
     
     def test_bonusSlingImage(self):
         self.driver.get("https://sling.com")
-        channelList = self.driver.find_elements(By.XPATH, '//*[@id="channelList"]//img')
-        planList = self.driver.find_elements(By.XPATH, '//*[@id="dom_pc_grid"]/div//*[contains(@id,"plan")]')        
+        planList = self.driver.find_elements(By.XPATH, '//*[@id="hp_pcgrid"]/div//*[contains(@id,"plan")]')        
         for plan in planList:
             plan.click()
-            time.sleep(0.2)
-            # WebDriverWait(self.webDriver, 10).until(expected_conditions.presence_of_element_located((By.ID, plan.get_attribute("id")))
+            time.sleep(0.5)
             channelList = self.driver.find_elements(By.XPATH, '//*[@id="channelList"]//img')
-            print("\n" + plan.get_attribute("title"))
+            print("\n" + str(plan.get_attribute("id")) + ":")
             for i in channelList:
                 print(str(i.get_attribute("title")) + " - " + str(i.get_attribute("alt")))
 
