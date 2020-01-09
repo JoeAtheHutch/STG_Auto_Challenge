@@ -1,4 +1,5 @@
 import unittest
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -15,10 +16,10 @@ class challenge2(unittest.TestCase):
 
     def test_challenge5(self):
         searchField = self.driver.find_element(By.ID, "input-search")
-        searchField.send_keys("exotic")
-        changeCount = self.driver.find_element(By.XPATH, '//*[@id="serverSideDataTable_length"]/label/select').click()
-        self.driver.implicitly_wait(5000)
-
+        searchField.send_keys("porsche")
+        searchButton = self.driver.find_element(By.XPATH, '//*[@id="search-form"]/div/div[2]/button')
+        searchButton.click()
+        
         
         
 
