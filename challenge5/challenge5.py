@@ -6,6 +6,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import Select
 from common.TopNavSearch import topNavSearch
+from collections import Counter
+from common.CountList import countList
 
 class challenge2(unittest.TestCase):
 
@@ -24,7 +26,16 @@ class challenge2(unittest.TestCase):
                 By.XPATH, '//*[@id="serverSideDataTable_length"]/label/select')))
         resultNumber = self.driver.find_element(By.XPATH, '//*[@id="serverSideDataTable_length"]/label/select')
         Select(resultNumber).select_by_visible_text('100')
-        time.sleep(5)
+        # time.sleep(5)
+        WebDriverWait(self.driver, 5).until(
+            expected_conditions.visibility_of_element_located((
+                By.XPATH, '//*[@id="serverSideDataTable"]/tbody/tr[50]//span')))
+        models = self.driver.find_elements(By.XPATH, '//*[@id="serverSideDataTable"]/tbody/tr/td[6]/span')
+        modelCount = countList(models)
+        countedList = modelCount.getCounts()
+        for model in countedList:
+            print(model + " - " + str(countedList[model]))
+        
 
         
         

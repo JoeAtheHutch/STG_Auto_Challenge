@@ -13,3 +13,4 @@ class topNavSearch:
         searchField.send_keys(searchString)
         searchButton = self.driver.find_element(By.XPATH, '//*[@id="search-form"]/div/div[2]/button')
         searchButton.click()
+        
