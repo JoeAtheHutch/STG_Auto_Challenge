@@ -20,13 +20,12 @@ class challenge2(unittest.TestCase):
 
     def test_challenge5(self):
         searchBar = topNavSearch(self.driver)
-        searchBar.runSearch("ford")
+        searchBar.runSearch("porsche")
         WebDriverWait(self.driver, 5).until(
             expected_conditions.visibility_of_element_located((
                 By.XPATH, '//*[@id="serverSideDataTable_length"]/label/select')))
         resultNumber = self.driver.find_element(By.XPATH, '//*[@id="serverSideDataTable_length"]/label/select')
         Select(resultNumber).select_by_visible_text('100')
-        # time.sleep(5)
         WebDriverWait(self.driver, 5).until(
             expected_conditions.visibility_of_element_located((
                 By.XPATH, '//*[@id="serverSideDataTable"]/tbody/tr[50]//span')))
@@ -36,7 +35,23 @@ class challenge2(unittest.TestCase):
         for model in countedList:
             print(model + " - " + str(countedList[model]))
         
-
+    def test_damages(self):
+        damageTypes = {"REAR END":0, "FRONT END":0, "MINOR DENT/SCRATCHES":0, "UNDERCARRIAGE":0, "MISC.":0}
+        searchBar = topNavSearch(self.driver)
+        searchBar.runSearch("porsche")
+        WebDriverWait(self.driver, 5).until(
+            expected_conditions.visibility_of_element_located((
+                By.XPATH, '//*[@id="serverSideDataTable_length"]/label/select')))
+        resultNumber = self.driver.find_element(By.XPATH, '//*[@id="serverSideDataTable_length"]/label/select')
+        Select(resultNumber).select_by_visible_text('100')
+        WebDriverWait(self.driver, 5).until(
+            expected_conditions.visibility_of_element_located((
+                By.XPATH, '//*[@id="serverSideDataTable"]/tbody/tr[50]//span')))
+        damages = self.driver.find_elements(By.XPATH, '//*[@id="serverSideDataTable"]/tbody/tr/td[12]/span')
+        damageList = countList(damages)
+        for damage in damageList:
+            print(damage)
+        
         
         
         
