@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import Select
 from common.TopNavSearch import topNavSearch
 from collections import Counter
 from common.CountList import countList
+from common.DamageSwitch import damageSwitch
 
 class challenge2(unittest.TestCase):
 
@@ -48,9 +49,16 @@ class challenge2(unittest.TestCase):
             expected_conditions.visibility_of_element_located((
                 By.XPATH, '//*[@id="serverSideDataTable"]/tbody/tr[50]//span')))
         damages = self.driver.find_elements(By.XPATH, '//*[@id="serverSideDataTable"]/tbody/tr/td[12]/span')
-        damageList = countList(damages)
-        for damage in damageList:
-            print(damage)
+        whichType = damageSwitch()
+        for d in damages:
+            thisCar = whichType.switch(d.text)
+            damageTypes[thisCar] += 1
+        for i in damageTypes:
+            print(i + " - " + str(damageTypes[i]))
+
+        
+            
+            
         
         
         
