@@ -35,6 +35,7 @@ class challenge2(unittest.TestCase):
         countedList = modelCount.getCounts()
         for model in countedList:
             print(model + " - " + str(countedList[model]))
+        print("****end model counts****")
         
     def test_damages(self):
         damageTypes = {"REAR END":0, "FRONT END":0, "MINOR DENT/SCRATCHES":0, "UNDERCARRIAGE":0, "MISC.":0}
@@ -55,7 +56,7 @@ class challenge2(unittest.TestCase):
             damageTypes[thisCar] += 1
         for i in damageTypes:
             print(i + " - " + str(damageTypes[i]))
-
+        print("****end damage counts****")
         
             
             
