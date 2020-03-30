@@ -23,8 +23,8 @@ class challenge2(unittest.TestCase):
     def test_challenge6(self):
         hs = headerSearch(self.driver)
         hs.searchFor("Nissan")
-        f = filters()
-        f.clickFilter("")
+        f = filters(self.driver)
+        f.clickFilter("Model")
         s = screenshot()
         s.takeScreenshot("Skyline")
         sr = searchResults()
@@ -57,6 +57,7 @@ class challenge2(unittest.TestCase):
         #     checkboxElements = self.driver.find_elements(By.XPATH, "//*[@id='collapseinside4']//input[@type='checkbox']")
         #     for e in checkboxElements:
         #         e.get_attribute('value')
+        
 
 
 if __name__ == '__main__':

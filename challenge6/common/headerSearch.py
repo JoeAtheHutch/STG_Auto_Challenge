@@ -14,7 +14,7 @@ class headerSearch:
         searchField.send_keys(query)
         searchButton = self.driver.find_element(By.XPATH, '//*[@id="search-form"]/div/div[2]/button')
         searchButton.click()
-        dataElement = WebDriverWait(self.driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="serverSideTable"]//tbody')) )
-        tableData = self.driver.find_element(By.XPATH, '//*[@id="serverSideTable"]//tbody')
+        dataElement = WebDriverWait(self.driver, 60).until(EC.presence_of_element_located((By.XPATH, '//*[@id="serverSideDataTable"]//tbody')) )
+        tableData = self.driver.find_element(By.XPATH, '//*[@id="serverSideDataTable"]//tbody')
         visible = tableData.text
         print("Visible")
