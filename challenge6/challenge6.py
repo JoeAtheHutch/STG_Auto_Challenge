@@ -1,4 +1,5 @@
 import unittest
+import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -25,14 +26,17 @@ class challenge2(unittest.TestCase):
         hs.searchFor("Nissan")
         f = filters(self.driver)
         f.clickFilter("Model")
+        f.filtersSearchText("Skyline")
         s = screenshot()
         s.takeScreenshot("Skyline")
         sr = searchResults()
         sr.changeDropDown("100")
+        # time.sleep(5)
+
         # create this challenge here.
         # search for a make
         # Select a list of models within that make
-        # Attempt Select and invalid model and when it fails get a screen shot
+        # Attempt Select an invalid model and when it fails get a screen shot
         # Create a class that goes through each of the filter options
         # try:
         #     filterName = "Nissan"
