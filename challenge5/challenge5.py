@@ -13,7 +13,7 @@ from common.DamageSwitch import damageSwitch
 class challenge2(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver")
+        self.driver = webdriver.Chrome("..\\chromedriver.exe")
         self.driver.get("https://www.copart.com")
 
     def tearDown(self):

@@ -12,7 +12,7 @@ from common.filters import filters
 class challenge2(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver")
+        self.driver = webdriver.Chrome("..\\chromedriver.exe")
         self.driver.get("https://www.copart.com")
         print("Dun gettin' setup yo'")
 

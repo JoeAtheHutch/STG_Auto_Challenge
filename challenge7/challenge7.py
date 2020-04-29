@@ -8,7 +8,7 @@ from common.navigateTo import navigateTo
 class challenge7(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome("../chromedriver")
+        self.driver = webdriver.Chrome("..\\chromedriver.exe")
         self.driver.get("https://www.copart.com")
 
     def tearDown(self):
